@@ -1,0 +1,9 @@
+.env
+data/logs/*.db
+__pycache__/
+*.pyc
+node_modules/
+.next/
+dist/
+build/
+*.enc

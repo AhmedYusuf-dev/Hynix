@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+websockets
+requests
+python-dotenv
+sqlalchemy
+psycopg2-binary
+cryptography
+passlib[bcrypt]
+python-jose[cryptography]
+duckduckgo_search
+beautifulsoup4

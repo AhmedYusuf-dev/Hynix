@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: hynix-nervous-system
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: PYTHONPATH
+        value: .
+      - key: DATABASE_URL
+        sync: false # Set this in Render Dashboard
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: HYNIX_VAULT_SECRET
+        sync: false
+      - key: TEACHER_MODEL
+        value: openrouter/free

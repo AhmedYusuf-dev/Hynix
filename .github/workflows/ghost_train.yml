@@ -1,0 +1,34 @@
+name: Hynix 1 Mini Ghost Pipeline
+
+on:
+  push:
+    paths:
+      - 'data/ghost_dataset.enc' # Trigger only on new encrypted data
+
+jobs:
+  zero_trust_train:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        run: |
+          pip install torch transformers cryptography cryptography
+
+      - name: Execute Ghost Training
+        env:
+          HYNIX_MASTER_KEY: ${{ secrets.HYNIX_MASTER_KEY }}
+        run: |
+          python training/ghost_trainer.py
+
+      - name: Secure Weight Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: encrypted-hynix-weights
+          path: models/hynix_v1/weights.enc
