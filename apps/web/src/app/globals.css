@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --color-claude-bg: #f9f8f6;
+  --color-claude-sidebar: #ffffff;
+  --color-claude-text: #212121;
+  --color-claude-muted: #6b7280;
+  --color-claude-border: #e5e7eb;
+}
+
+:root {
+  --background: #f9f8f6;
+  --foreground: #212121;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar for Claude feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}
